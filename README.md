@@ -21,7 +21,7 @@ Approximate requirements on an Apple M3 Max MacBook Pro using one CPU thread
 | 6000 × 6000 | Original | 22 hours 30 minutes | 5.8 GB |
 | 6000 × 6000 | Cached | 68 minutes | 1.2 GB |
 
-The 4000 cached result was measured. Other runtimes are estimates. Memory includes A, B, C, and one determinant working copy.
+The 4000 cached result was measured. Memory includes A, B, C, and one determinant working copy.
 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DALGEBRA_ASSIGNMENT_SIZE=4000
