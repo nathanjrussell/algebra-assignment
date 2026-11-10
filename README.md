@@ -29,4 +29,3 @@ cmake --build build --parallel
 ./build/src/algebra_determinants
 ```
 
-Use 6000 for the larger matrix size.
