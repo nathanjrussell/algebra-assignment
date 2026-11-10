@@ -1,14 +1,14 @@
 # Finite field determinants
 
-Scientific repositories often form complex dependency chains and express algorithms directly from their scientific domain. Computer scientists routinely learn domains outside their formal training. Clients may be reluctant to approve complete refactoring.
+Scientific software often spans several interdependent repositories. Its code may follow the algorithms and mathematical definitions of a scientific field. Computer scientists routinely learn about fields outside their formal training. Clients may be reluctant to approve a complete refactor.
 
-Focus on one component where caching can replace repeated expensive calculations. Provide unit tests demonstrating that the enhanced implementation preserves the original results.
+Focus on one component where caching can replace repeated expensive calculations. Use unit tests to show that the cached implementation produces the same results as the original.
 
-This program uses a field of prime power order 11³ = 1331. Its elements are represented by polynomials of degree below three with coefficients modulo 11. The field has relatively few elements, but repeatedly computing polynomial arithmetic is expensive.
+This program uses a finite field of prime power order 11³ = 1331. It represents elements as polynomials of degree less than three with coefficients modulo 11. The field has relatively few elements, but repeated polynomial arithmetic is expensive.
 
 Implement a cached finite field representation compatible with the existing matrix operations.
 
-The program computes C = A × B and independently calculates all three determinants to verify
+The program computes C = A × B and calculates det(A), det(B), and det(C) independently. It then checks that
 
 det(C) = det(A) × det(B)
 
@@ -21,11 +21,10 @@ Approximate requirements on an Apple M3 Max MacBook Pro using one CPU thread
 | 6000 × 6000 | Original | 22 hours 30 minutes | 5.8 GB |
 | 6000 × 6000 | Cached | 68 minutes | 1.2 GB |
 
-The 4000 cached result was measured. Memory includes A, B, C, and one determinant working copy.
+The 4000 × 4000 cached figures come from a benchmark. Peak memory includes A, B, C, and one determinant working copy.
 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DALGEBRA_ASSIGNMENT_SIZE=4000
 cmake --build build --parallel
 ./build/src/algebra_determinants
 ```
-
