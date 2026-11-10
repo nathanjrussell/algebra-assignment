@@ -39,9 +39,11 @@ Work together within your group and use the same IEEE LaTeX template as in the f
 
 ### Code repository
 
-Wrap one class with a cached implementation that can serve as a drop-in replacement. The finite field class is a good candidate. Aim to preserve its public interface, header paths, and type names so callers can switch implementations by changing the dependency in CMake.
+Wrap one class with a cached implementation that can serve as a drop-in replacement. The finite field class is a good candidate. Aim to preserve its public interface, header paths, and type names so callers can switch implementations by changing the dependency in CMake. If done correctly, nothing else needs to be changed.  In the real world, this will provide your clients with more confidence about accuracy. 
 
-Operations on the same field element or pair of elements can reuse a previously computed result. Consider `std::unordered_map` to store results keyed by their operands. Keep the irreducible polynomial selected by the finite field class's deterministic search.
+Operations on the same field element or pair of elements can reuse a previously computed result. Consider `std::unordered_map` to store results keyed by their operands. Keep the irreducible polynomial selected by the finite field class's deterministic search.   
+
+I have made suggestions, but you are free to implement anything you choose. You should not make sweeping changes to the entire dependency chain.
 
 ### MPI implementation
 
@@ -54,14 +56,14 @@ Compare determinant runtimes for the same matrices using the cached sequential i
 Submit a group report in the IEEE LaTeX template. Include the following information.
 
 - The class you chose to cache and where it sits in the dependency chain
-- Runtime and peak memory before and after caching, with profiling graphs
+- Runtime and peak memory before and after caching, with profiling graphs (does not have to be exhaustive just very informative).
 - Your MPI approach and the results of the break-even measurements
 
-Prepare a PowerPoint presentation and be ready to present your results. Beamer is optional.
+Prepare a PowerPoint presentation and be ready to present your results. Beamer is optional. Feel free to use PowerPoint.
 
 ### AI usage
 
-Consult AI during the assignment and make sure you can explain the algorithms you use.
+Consult AI during the assignment and make sure you can explain the algorithms you use. Do not make AI do it all. 
 
 ### Conclusion
 
